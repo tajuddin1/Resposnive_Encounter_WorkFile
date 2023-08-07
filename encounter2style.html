@@ -1,0 +1,1630 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- <link href="../css/bootstrap5/bootstrap.css" rel="stylesheet"> -->
+
+  <script src="https://kit.fontawesome.com/bed0ecf05b.js" crossorigin="anonymous"></script>
+
+  <!-- CSS Global -->
+  <!-- <link href="../assets/css/styles.css" rel="stylesheet"> -->
+  <link href="examxoom.css" rel="stylesheet" />
+  <!-- <link href="../assets/css/autocomplete.css" rel="stylesheet"/> -->
+
+  <!-- Google Fonts -->
+  <!-- <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600italic,600,700,700italic,800,800italic' rel='stylesheet' type='text/css'> -->
+  <!-- <link href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" rel="stylesheet"> -->
+
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script> -->
+  <title>Encounter</title>
+  <style>
+    /* body {margin:0;} */
+
+    body {
+      background-color: #f5f5f5;
+      margin: 0;
+    }
+
+    .add-button {
+      float: right;
+      margin-bottom: 10px;
+    }
+
+    /* .enc-button {
+      float: left;
+      margin: 10px 5px 0px;
+    } */
+
+    .encounter-header {
+      background-color: white;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    .enc-section {
+      float: center;
+      width: 90%;
+      padding: 6px;
+    }
+
+    /* .enc-select {
+      margin-top: 30px;
+      margin-left: 60px;
+    } */
+
+    .dxcode {
+      font-size: 12px;
+      width: 70px;
+      margin-left: 6px;
+      margin-bottom: 10px;
+      border-radius: 0.25em;
+    }
+
+    .dxdesc {
+      font-size: 12px;
+      width: 150px;
+      margin-right: 12px;
+      border-radius: 0.25em;
+    }
+
+    /* .dxdesc:focus {
+      width: 300px;
+    } */
+
+    .main {
+      padding: 3px;
+      margin-top: 50px;
+      /* height: 1500px; Used in this example to enable scrolling */
+    }
+
+    .med-alert {
+      background-color: antiquewhite;
+      height: 122px;
+    }
+
+    .notifications {
+      background-color: rgb(250, 249, 215);
+      border-radius: 5px;
+      margin-top: 10px;
+      padding: 10px;
+    }
+
+    .patient-name {
+      float: left;
+      display: block;
+      color: #000000;
+      text-align: center;
+      padding: 12px 12px;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .patient-dob {
+      text-align: center;
+      padding: 12px 12px;
+    }
+
+    .patient-buttons {
+      /* text-align: right!important; */
+      float: right;
+      text-align: center;
+      padding: 12px;
+    }
+
+    .profile-box {
+      position: fixed;
+      width: 175px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .profile-patient {
+      border-radius: 10px;
+      background-color: white;
+    }
+
+    .profile-image {
+      margin-top: 15px;
+      padding: 12px;
+    }
+
+    .profile-name {
+      font-weight: bold;
+    }
+
+    .section-container {
+      background-color: white;
+      border-radius: 10px;
+      margin: 15px;
+    }
+
+    .section-title {
+      float: left;
+      text-align: center;
+      font-size: 15px;
+      padding: 1px 3px;
+      margin-left: 15px;
+    }
+
+    .section-alerts {
+      font-size: 15px;
+      background-color: rgb(246, 201, 185);
+      border-radius: 5px;
+      margin-top: 10px;
+      padding: 10px;
+    }
+
+    .statusmessage {
+      font-size: 12px;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .right-col {
+      padding-left: 200px;
+    }
+
+    /* Table Settings  */
+    .disp-table {
+      font-size: 12px;
+      width: 100%;
+      background-color: white;
+    }
+
+    .td-center {
+      text-align: center;
+      width: 120px;
+    }
+
+    .th-copy {
+      width: 50px;
+    }
+
+    .header-image {
+      height: 122px;
+      width: auto;
+    }
+
+    .header-button {
+      margin-top: 5px;
+      margin-right: 10px;
+    }
+
+
+
+
+
+
+
+    .container-title {
+      border-radius: 10px 10px 0px 0px;
+      font-weight: bold;
+      padding: 8px;
+      width: 100%;
+    }
+
+    .container-body {
+      padding: 8px;
+      width: 100%;
+    }
+
+    .questionnaire {
+      background-color: #ffe6e6;
+    }
+
+    .subjective {
+      background-color: #ffe0b3;
+    }
+
+    .objective {
+      background-color: #ffff99;
+    }
+
+    .assessment {
+      background-color: MediumAquamarine;
+    }
+
+    .medication {
+      background-color: #e6e6ff;
+    }
+
+    .procedure {
+      background-color: PowderBlue;
+    }
+
+    .plan {
+      background-color: #e6ccff;
+    }
+
+    .summary {
+      background-color: #e6e6e6;
+    }
+
+    .text-section {
+      padding: 10px;
+    }
+
+    .table-section {
+      right: 0px;
+    }
+  </style>
+</head>
+
+<body onload="pageloadscripts();">
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+
+  <!-- <script src="../js/bootstrap5/bootstrap.min.js" ></script> -->
+  <!-- C:\xampp\htdocs\dev1\examxoom.net\js\bootstrap5\bootstrap.js -->
+
+
+  <!-- Top Header / Nav -->
+  <div class="top_haeder">
+    <div class="encounter-header">
+      <div class="row py-0 py-lg-1 align-items-center">
+
+
+        <div class="col-2 col-md-1">
+          <div id="navIcon" class="nav_icon d-md-none">
+            <i class="fa fa-bars"></i>
+          </div>
+        </div>
+
+
+        <div class="col-8 col-md-6 col-lg-4 d-flex m-0 p-0 justify-content-center">
+          <div class="patient-name">Encounter: <input type="datetime-local" value="2023-07-19T11:05">
+          </div>
+        </div>
+
+
+        <div class="col-3 col-xl-2 d-none d-md-block  d-lg-none d-xl-block">
+          <div class='statusmessage' id='statusmessage'>Not saved</div>
+        </div>
+
+
+        <div class="col-2 col-lg-6 col-xl-5">
+          <div class="position-relative">
+            <div id="settingIcon" class="nav_icon d-lg-none">
+              <i class="fa fa-gear"></i>
+            </div>
+            <div id="settingMenu" class="patient-buttons d-none d-lg-block">
+              <button id="microphone" class="btn btn-sm header-button" onclick="toggleannyang()"><i
+                  class="fa fa-microphone-slash"></i> Mic</button>
+              <button class="btn btn-primary btn-sm header-button">Sign</button>
+              <button class="btn btn-primary btn-sm header-button">Report</button>
+              <a href='patient-encounters.php'><button class="btn btn-primary btn-sm header-button">Close</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left Slide Bar -->
+  <nav id="leftMenu" class="sidebar vertical-scroll  ps-container ps-theme-default ps-active-y">
+    <div  class="cross_wrapper d-md-none">
+      <div id="crossIcon" class="icon"><span>&#9587;</span></div>
+    </div>
+    <div class="profile-box">
+      <div class="profile-patient">
+        <div class="profile-image">
+          <i class='fa fa-user fa-5x'></i>
+        </div>
+        <div class="profile-name">Patient, Test</div>
+        <div class="patient-dob">
+          <div>DOB: 1-01-1980<br>
+            Age: 43
+          </div>
+        </div>
+      </div>
+
+      <div class="section-alerts">
+        <strong>Alerts</strong></br>
+        <ul class="list-unstyled mb-0">
+          <li> Allergic to pencilin</li>
+        </ul>
+      </div>
+      <div class="notifications">
+        <strong>Notifications</strong>
+        <p class="mb-0">No follow up appointment scheduled.</p>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Section -->
+  <section class="main_content dashboard_part p-0">
+    <!-- Content Layout -->
+    <div class="home_content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 p-0">
+            <div class="section-container">
+              <div class="container-title questionnaire">Questionnaire</div>
+              <div class="container-body">
+                <div class="text-section">
+                  <div class="row justify-content-between">
+                    <div class="col-12 col-lg-7">
+                      <h2 class="heading_title">Existing Questionnaire</h2>
+                      <table class="table table-bordered disp-table mb-0" id="questionnairetable">
+                        <thead>
+                          <tr>
+                            <th>Include</th>
+                            <th>Form</th>
+                            <th>Score</th>
+                            <th>Completed</th>
+                            <th>Created</th>
+                            <th><i class="fa fa-clock-o" aria-hidden="true"></i></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><input type="checkbox" id="qncb225" data-qnid="225" onchange="qnadd(this);"></td>
+                            <td>PHQ-9</td>
+                            <td>17%</td>
+                            <td><a href="questionnaire-print-clinic.php?code=ZjOc6-dH7Fv-g9mDO-Blk8d-ThgtZ"
+                                target="_blank">10 Dec 2020</a></td>
+                            <td>10 Dec 2020</td>
+                            <td>01:09</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-5 col-xl-4">
+                      <!-- New Questionnaire -->
+                      <select class="enc-select form-select form-control mt-4" id="QuestionnaireList2" name="QuestionnaireList2"
+                        onchange="getquestionnaire2(this);">
+                        <option value="0" selected="selected" disabled=""> - Select a Questionnaire - </option>
+                        <option value="128">Musculoskeletal-ROS</option>
+                        <option value="185">Morgan</option>
+                        <option value="160">VAS</option>
+                        <option value="159">short test</option>
+                        <option value="55">TEST Yellow Flag</option>
+                        <option value="10">Add Issue</option>
+                        <option value="13">General ROS Questions</option>
+                        <option value="15">Oswestry Disability Index</option>
+                        <option value="16">PSQ-18</option>
+                        <option value="17">STarT Back</option>
+                        <option value="18">Quick DASH</option>
+                        <option value="26">Patient Compliance</option>
+                        <option value="27">Patient Satisfaction</option>
+                        <option value="28">Test Questionnaire name</option>
+                        <option value="39">Test Questionnaire</option>
+                        <option value="5">Symptom Picture</option>
+                        <option value="6">q3</option>
+                        <option value="7">Third One</option>
+                        <option value="30">Lower Extremity Functional Scale</option>
+                        <option value="42">Oswestry Disability Index v2.0</option>
+                        <option value="49">PHQ-2</option>
+                        <option value="50">PHQ-9</option>
+                        <option value="74">PHQ-4</option>
+                        <option value="76">PHQ-9 Teens</option>
+                        <option value="77">PHQ-15</option>
+                        <option value="87">Neck Disability Index</option>
+                        <option value="84">GAD-2</option>
+                        <option value="85">GAD-7</option>
+                        <option value="91">Bournemouth Back Questionnaire</option>
+                        <option value="122">General-ROS</option>
+                        <option value="123">Ear, Nose, Throat-ROS</option>
+                        <option value="124">Circulatory-ROS</option>
+                        <option value="125">Respiratory-ROS</option>
+                        <option value="126">GI(Stomach &amp; Intestines)</option>
+                        <option value="127">GU(Kidney &amp; Bladder) ROS </option>
+                        <option value="129">Skin-ROS</option>
+                        <option value="130">Neurological-ROS</option>
+                        <option value="131">Psychiatric-ROS</option>
+                        <option value="132">Endocrine-ROS</option>
+                        <option value="133">Allergic/Immunologic-ROS</option>
+                        <option value="158">Allergy Questionnaire</option>
+                        <option value="170">The Quebec Back Pain Disability Scale:</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-section"></div>
+              </div>
+            </div>
+            <div class="section-container">
+              <div class="container-title subjective">Subjective</div>
+              <div class="container-body">
+                <div class="text-section">
+                  <div class="row">
+                    <div class="col-12 col-xl-7">
+                      <h2 class="heading_title">Subjective</h2>
+                      <textarea class="form-control" id="SubjectiveText" rows="4" onblur="SOAPstore2(1945);"
+                        placeholder="Include subjective information for the visit." data-lt-tmp-id="lt-709283"
+                        spellcheck="false"
+                        data-gramm="false">Patient presents with lower back pain after jumping on a trampoline a few weeks ago. She felt fine that day but the next day had pain 8/10. She has slowly improved but continues to have pain. </textarea>
+                      <div class="d-flex justify-content-between button_wrapper">
+                        <button class="btn btn-sm btn-primary enc-button" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#subjectiveMacros" aria-controls="offcanvasRight">Macros</button>
+                        <button class="btn btn-sm btn-primary enc-button" type="button"
+                        onclick="getSOAPhistory('subjective');">History</button>
+                        <button class="btn btn-sm btn-primary enc-button" type="button" onclick="drophere('SubjectiveText')" ;
+                        return false\>Paste</button>
+                      </div>
+
+                    </div>
+                    <div class="col-12 col-xl-5 mt-3 mt-xl-0">
+                      <h2 class="heading_title">Issues</h2>
+                      <a href="patient-issues.php"><button class="btn btn-sm btn-primary add-button">Add Issue</button></a>
+
+                      <table class="table table-bordered disp-table">
+                        <thead>
+                          <tr>
+                            <th>Include</th>
+                            <th>Issue</th>
+                            <th>MOI</th>
+                            <th>MOI Date</th>
+                            <th>Created</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><input type="checkbox" id="cb53" data-issue="53" onclick="dxadd(this,1945);"></td>
+                            <td>Right shoulder pain</td>
+                            <td>Sitting on the floor with puppies</td>
+                            <td>5 Nov 2020</td>
+                            <td>12 Nov 2020</td>
+                          </tr>
+                          <tr>
+                            <td><input type="checkbox" id="cb316" data-issue="316" checked="checked"
+                                onclick="dxadd(this,1945);"></td>
+                            <td>Lower back pain</td>
+                            <td>Jumping on a trampoline</td>
+                            <td>1 Jul 2023</td>
+                            <td>20 Jul 2023</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+
+                </div>
+                <div class="table-section">
+
+                </div>
+              </div>
+            </div>
+
+            <div class="section-container">
+              <div class="container-title objective">Objective</div>
+              <div class="container-body">
+                <!-- <label for="SubjectiveText">Subjective</label> -->
+                <div class="text-section">
+                  <div class="row justify-content-between">
+                    <div class="col-12 col-lg-7">
+                      <h2 class="heading_title">Objective</h2>
+                      <textarea class="form-control" id="ObjectiveText" rows="3"
+                        onblur="SOAPstore2('1945');">Bending forward is painful</textarea>
+                      <div class="d-flex justify-content-between button_wrapper">
+                        <button class="btn btn-sm btn-primary enc-button" type="button" data-bs-toggle="offcanvas"
+                          data-bs-target="#objectiveMacros" aria-controls="offcanvasRight">Macros</button>
+                        <button class="btn btn-sm btn-primary enc-button" type="button" type="button"
+                          onclick="getSOAPhistory('objective');">History</button>
+                        <button class="btn btn-sm btn-primary enc-button" type="button" onclick="drophere('ObjectiveText')" ;
+                          return false\>Paste</button>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-5 col-xl-4 mt-4">
+                      <select class="enc-select form-select form-control" id="ExamList2" name="ExamList2" onchange="getexams(this);">
+                        <option value="0" selected="selected" disabled=""> - Select Exam - </option>
+                        <option value="0">Current</option>
+                        <option value="220">Spinal Palpation</option>
+                        <option value="145">Top Tier</option>
+                        <option value="34">Vitals</option>
+                        <option value="201">Neck Exam</option>
+                        <option value="90">Cervical</option>
+                        <option value="91">Thorax</option>
+                        <option value="187">Lumbar</option>
+                        <option value="193">Hip</option>
+                        <option value="192">Knee</option>
+                        <option value="189">Shoulder</option>
+                        <option value="146">Cervical Breakouts</option>
+                        <option value="147">UE Pattern 1 Breakouts</option>
+                        <option value="148">UE Pattern 2 Breakouts</option>
+                        <option value="149">MSF Breakout</option>
+                        <option value="150">MSE Spine Breakout</option>
+                        <option value="151">MSE Upper Body Breakout</option>
+                        <option value="152">MSE Lower Body Breakout</option>
+                        <option value="153">MSR Spine Breakout</option>
+                        <option value="154">MSR Hip Breakout</option>
+                        <option value="155">MSR Tibia Breakout</option>
+                        <option value="156">Single Leg Stance Breakout</option>
+                        <option value="157">Overhead Deep Squat Breakout</option>
+                        <option value="158">Rolling Breakout</option>
+                        <option value="194">Pelvis</option>
+                        <option value="144">New Q value exams</option>
+                        <option value="197">CS Dermatomes</option>
+                        <option value="215">Posture Exam</option>
+                        <option value="216">Allergies</option>
+                        <option value="217">Skin Prick Test</option>
+                        <option value="218">Allergy - sIgE</option>
+                        <option value="219">Food Allergens</option>
+                        <option value="224">Physical Exam</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-section"></div>
+              </div>
+            </div>
+
+            <div class="section-container">
+              <div class="container-title assessment">Assessment</div>
+              <div class="container-body">
+                <!-- <label for="SubjectiveText">Subjective</label> -->
+                <div class="text-section">
+                  <div class="row">
+                    <div class="col-12 col-lg-5">
+                      <h2 class="heading_title">Assessment</h2>
+                      <textarea class="form-control" id="AssessmentText" rows="3"
+                        onblur="SOAPstore2('1945');">I suspect the patient has a subtle lumbar (L5) disc irritation. </textarea>
+                      <div class="d-flex justify-content-between button_wrapper">
+                        <button class="btn btn-sm btn-primary enc-button" type="button" data-bs-toggle="offcanvas"
+                          data-bs-target="#assessmentMacros" aria-controls="offcanvasRight">Macros</button>
+                        <button class="btn btn-sm btn-primary enc-button" type="button"
+                          onclick="getSOAPhistory('assessment');">History</button>
+                        <button class="btn btn-sm btn-primary enc-button" type="button" onclick="drophere('AssessmentText')" ;
+                          return false\>Paste</button>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-7 mt-4 mt-lg-0">
+                      <div class="row">
+                        <div class="col-6">
+                          <div id="more_dx1">
+                          <label for="dxa-code">A</label>
+                          <input type="text" class="dxcode form-control" id="dxa-code" onblur="savediagnosis(891191821689862874);"
+                            value="M99.03">
+                          <input type="text" class="dxdesc form-control" id="dxa-desc" onblur="savediagnosis();"
+                            value="Segmental and somatic dysfunction of lumbar region"> <br>
+                          <label for="dxb-code">B</label>
+                          <input type="text" class="dxcode form-control" id="dxb-code" onblur="savediagnosis();" value="M54.51">
+                          <input type="text" class="dxdesc form-control" id="dxb-desc" onblur="savediagnosis();"
+                            value="Vertebrogenic low back pain"> <br>
+                          <label for="dxc-code">C</label>
+                          <input type="text" class="dxcode form-control" id="dxc-code" onblur="savediagnosis();" value="">
+                          <input type="text" class="dxdesc form-control" id="dxc-desc" onblur="savediagnosis();" value=""> <br>
+                          <label for="dxd-code">D</label>
+                          <input type="text" class="dxcode form-control" id="dxd-code" onblur="savediagnosis();" value="">
+                          <input type="text" class="dxdesc form-control" id="dxd-desc" onblur="savediagnosis();" value="">
+                          <span onclick="showdx();">
+                            <!-- Show/hide Dx</span><br /> -->
+                          </span>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div id="more_dx">
+                            <label for="dxe-code">E</label>
+                            <input type="text" class="dxcode form-control" id="dxe-code" onblur="savediagnosis();" value="">
+                            <input type="text" class="dxdesc form-control" id="dxe-desc" onblur="savediagnosis();" value=""> <br>
+                            <label for="dxf-code">F</label>
+                            <input type="text" class="dxcode form-control" id="dxf-code" onblur="savediagnosis();" value="">
+                            <input type="text" class="dxdesc form-control" id="dxf-desc" onblur="savediagnosis();" value=""> <br>
+                            <label for="dxg-code">G</label>
+                            <input type="text" class="dxcode form-control" size="8" id="dxg-code" onblur="savediagnosis();" value="">
+                            <input type="text" class="dxdesc form-control" size="45" id="dxg-desc" onblur="savediagnosis();"
+                              value=""> <br>
+                            <label for="dxh-code">H</label>
+                            <input type="text" class="dxcode form-control" id="dxh-code" onblur="savediagnosis();" value="">
+                            <input type="text" class="dxdesc form-control" id="dxh-desc" onblur="savediagnosis();" value="">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-section">
+                </div>
+              </div>
+            </div>
+
+            <div class="section-container">
+              <div class="container-title medication">Medications</div>
+              <div class="container-body">
+                <!-- <label for="SubjectiveText">Subjective</label> -->
+                <div class="text-section">
+                  <div class="row">
+                    <div class="col-12 col-xl-6">
+                      <h2 class="heading_title">Medications</h2>
+                      <textarea class="form-control" id="MedicationsText" rows="3"
+                        placeholder="Include notes related to their medicaitons."
+                        onblur="SOAPstore2('1945');">No medication change at this time.</textarea>
+                      <div class="d-flex justify-content-between button_wrapper">
+                        <button class="btn btn-sm btn-primary enc-button" type="button" data-bs-toggle="offcanvas"
+                          data-bs-target="#medicationMacros" aria-controls="offcanvasRight">Macros</button>
+                        <button class="btn btn-sm btn-primary enc-button" type="button"
+                          onclick="getSOAPhistory('medications');">History</button>
+                        <button class="btn btn-sm btn-primary enc-button" type="button" onclick="drophere('MedicationText')" ;
+                          return false\>Paste</button>
+                      </div>
+                    </div>
+                    <div class="col-12 col-xl-6 mt-3 mt-md-0">
+                      <button class="btn btn-sm btn-primary add-button">Add Medication</button>
+                      <table id="stacked"
+                        class="table table-bordered disp-table">
+                        <!-- <caption>Medications</caption> -->
+                        <thead>
+                          <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Dose/Frequency</th>
+                            <th scope="col">Treating</th>
+                            <th scope="col">Prescribed By on Date</th>
+                            <th scope="col">Discontinued</th>
+                            <th scope="col">Notes</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td data-title="Name">Tramadol</td>
+                            <td data-title="Dose/Frequency">20mg/hr</td>
+                            <td data-title="Treating">back pain</td>
+                            <td data-title="Prescribed By / Date">Steven Jones / 7-10-23</td>
+                            <td data-title="Discontinued"></td>
+                            <td data-title="Notes">temporary use</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="section-container">
+              <div class="container-title procedure">Procedure</div>
+              <div class="container-body">
+                <!-- <label for="SubjectiveText">Subjective</label> -->
+                <div class="text-section">
+                  <div class="row justify-content-between">
+                    <div class="col-12 col-lg-7">
+                      <h2 class="heading_title">Procedure</h2>
+                      <textarea class="form-control" id="ProcedureText" rows="3"
+                        placeholder="Include procedures or treatments that were performed durign the visit."
+                        onblur="SOAPstore2('1945');">Post isometric relaxation was performed to the following areas to restore proper muscle function (length and strength):
+LS rotation
+
+Active Release Technique was performed at the following areas to reduce soft-tissue adhesions:
+Lumbar erectors
+
+Diversified adjustments were performed to the following segments and were well tolerated by the patient:
+L4-5 left                    
+
+Sub-occipital release.
+                                  </textarea>
+                        <div class="d-flex justify-content-between button_wrapper">
+                          <button class="btn btn-sm btn-primary enc-button" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#procedureMacros" aria-controls="offcanvasRight">Macros</button>
+                          <button class="btn btn-sm btn-primary enc-button" type="button"
+                            onclick="getSOAPhistory('procedure');">History</button>
+                          <button class="btn btn-sm btn-primary enc-button" type="button" onclick="drophere('ProcedureText')" ;
+                            return false\>Paste</button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-5 col-xl-4 mt-4">
+                      <select class="enc-select form-select form-control" id="CategoryList" name="CategoryList" onchange="getcategories(this);">
+                        <option value="0" selected="selected" disabled=""> - Select Category - </option>
+                        <option value="0">Current</option>
+                        <option value="1">Adjustments</option>
+                        <option value="2">PIR</option>
+                        <option value="3">Cervical</option>
+                      </select>
+
+
+                    </div>
+
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-12 col-xl-6">
+                     <h2 class="heading_title">Suggested Charges</h2>
+                    </div>
+                    <div class="col-12 col-xl-6 mt-2 mt-xl-0">
+                      <h2 class="heading_title">Charges</h2>
+                      <button class="btn btn-sm btn-primary add-button">Add Charge</button>
+                      <table class="table table-bordered disp-table">
+                        <thead>
+                          <tr>
+                            <th>Date</th>
+                            <th>CPT Code</th>
+                            <th>Modifiers</th>
+                            <th>Pointers</th>
+                            <th>Units</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>19 Jul 2023</td>
+                            <td>99204</td>
+                            <td></td>
+                            <td>AB</td>
+                            <td>1</td>
+                            <td><span><i class="fa fa-trash-o" aria-hidden="true"></i></span><span
+                                onclick="loadProcedure(923);">
+                                <i class="fa fa-edit" aria-hidden="true"></i></span>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+
+                </div>
+                <div class="table-section">
+
+                </div>
+              </div>
+            </div>
+
+            <div class="section-container">
+              <div class="container-title plan">Plan</div>
+              <div class="container-body">
+                <!-- <label for="SubjectiveText">Subjective</label> -->
+                <div class="text-section">
+                  <div class="row">
+                    <div class="col-12 col-lg-6">
+                      <h2 class="heading_title">Plan</h2>
+                      <textarea class="form-control" id="PlanText" rows="3"
+                        placeholder="Include the short term and long term plan for the patient."
+                        onblur="SOAPstore2('1945');">PRN</textarea>
+                      <div class="d-flex justify-content-between button_wrapper">
+                        <button class="btn btn-sm btn-primary enc-button" type="button" data-bs-toggle="offcanvas"
+                          data-bs-target="#planMacros" aria-controls="offcanvasRight">Macros</button>
+                        <button class="btn btn-sm btn-primary enc-button" type="button" type="button"
+                          onclick="getSOAPhistory('plan');">History</button>
+                        <button class="btn btn-sm btn-primary enc-button" type="button" onclick="drophere('PlanText')" ; return
+                          false\>Paste</button>
+                      </div>
+                    </div>
+                    <div class="col-12 col-lg-6 mt-3 mt-lg-0">
+                      <h2 class="heading_title">Upcoming appointments</h2>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="section-container">
+              <div class="container-title summary">Summary</div>
+              <div class="container-body">
+                <div class="text-section">
+                  <div class="row">
+                    <div class="col-12 col-lg-6">
+                      <h2 class="heading_title">Patient Summary</h2>
+                      <textarea class="form-control" id="SummaryText" rows="3"
+                        placeholder="Include the short description of the encounter for the patient."
+                        onblur="SOAPstore2('1945');"></textarea>
+                      
+                    </div>
+                    <div class="col-12 col-lg-6 mt-4">
+                      <button class="btn btn-sm btn-primary enc-button" type="button">Send Summary</button>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Subjective off canvas start -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="subjectiveMacros"
+      aria-labelledby="subjectiveoffcanvasRightLabelS">
+      <div class="offcanvas-header">
+        <h5 id="subjectiveoffcanvasRightLabelS">Subjective Macros</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body" id="ocsubjective">
+        <!-- start accordian -->
+        <div class="accordion" id="accordionsubjective">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading4">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
+                Initial Visit
+              </button>
+            </h2>
+            <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
+              data-bs-parent="#accordionsubjective">
+              <div class="accordion-body">
+                <div class="list-group">
+                  <div class="d-flex justify-content-between button_wrapper">
+                    <button class="list-group-item list-group-item-action" data-bs-toggle="tooltip"
+                    title="Patient presents for evaluation and management of "
+                    onclick="newText3(&quot;SubjectiveText&quot;,&quot;3&quot;)">NP</button>
+                    <button class="list-group-item list-group-item-action" data-bs-toggle="tooltip"
+                    title="Patient presents : \n"
+                    onclick="newText3(&quot;SubjectiveText&quot;,&quot;15&quot;)">PI</button>
+                    <button class="list-group-item list-group-item-action" data-bs-toggle="tooltip"
+                    title="Patient presents for evaluation and management of a condition which is the result of a work injury. "
+                    onclick="newText3(&quot;SubjectiveText&quot;,&quot;49&quot;)">WC</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading6">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
+                Regions
+              </button>
+            </h2>
+            <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6"
+              data-bs-parent="#accordionsubjective">
+              <div class="accordion-body">
+                <div class="list-group"></div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading8">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse8" aria-expanded="true" aria-controls="collapse8">
+                Symptoms
+              </button>
+            </h2>
+            <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8"
+              data-bs-parent="#accordionsubjective">
+              <div class="accordion-body">
+                <div class="list-group">
+                  <button class="list-group-item list-group-item-action" data-bs-toggle="tooltip"
+                    title="pain " onclick="newText3(&quot;SubjectiveText&quot;,&quot;37&quot;)">Pain</button>
+                    <button class="list-group-item list-group-item-action" data-bs-toggle="tooltip" title="tightness "
+                    onclick="newText3(&quot;SubjectiveText&quot;,&quot;38&quot;)">Tightness</button>
+                    <button class="list-group-item list-group-item-action" data-bs-toggle="tooltip"
+                    title="Patient complains of weakness "
+                    onclick="newText3(&quot;SubjectiveText&quot;,&quot;43&quot;)">Weakness</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading9">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse9" aria-expanded="true" aria-controls="collapse9">
+                Regional stuff
+              </button>
+            </h2>
+            <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9"
+              data-bs-parent="#accordionsubjective">
+              <div class="accordion-body">
+                <div class="list-group"></div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading18">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse18" aria-expanded="true" aria-controls="collapse18">
+                Follow Up
+              </button>
+            </h2>
+            <div id="collapse18" class="accordion-collapse collapse" aria-labelledby="heading18"
+              data-bs-parent="#accordionsubjective">
+              <div class="accordion-body">
+                <div class="list-group"><button class="list-group-item list-group-item-action" data-bs-toggle="tooltip"
+                    title="Patient presents for a follow-up visit for the ongoing treatment plan. "
+                    onclick="newText3(&quot;SubjectiveText&quot;,&quot;36&quot;)">Pt presents</button></div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading24">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse24" aria-expanded="true" aria-controls="collapse24">
+                Side
+              </button>
+            </h2>
+            <div id="collapse24" class="accordion-collapse collapse" aria-labelledby="heading24"
+              data-bs-parent="#accordionsubjective">
+              <div class="accordion-body">
+                <div class="list-group"></div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading38">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse38" aria-expanded="true" aria-controls="collapse38">
+                t3 folder
+              </button>
+            </h2>
+            <div id="collapse38" class="accordion-collapse collapse" aria-labelledby="heading38"
+              data-bs-parent="#accordionsubjective">
+              <div class="accordion-body">
+                <div class="list-group"></div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading39">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse39" aria-expanded="true" aria-controls="collapse39">
+                T4 Macro Folder
+              </button>
+            </h2>
+            <div id="collapse39" class="accordion-collapse collapse" aria-labelledby="heading39"
+              data-bs-parent="#accordionsubjective">
+              <div class="accordion-body">
+                <div class="list-group"></div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading40">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse40" aria-expanded="true" aria-controls="collapse40">
+                T5 n
+              </button>
+            </h2>
+            <div id="collapse40" class="accordion-collapse collapse" aria-labelledby="heading40"
+              data-bs-parent="#accordionsubjective">
+              <div class="accordion-body">
+                <div class="list-group"></div>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading41">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse41" aria-expanded="true" aria-controls="collapse41">
+                T6
+              </button>
+            </h2>
+            <div id="collapse41" class="accordion-collapse collapse" aria-labelledby="heading41"
+              data-bs-parent="#accordionsubjective">
+              <div class="accordion-body">
+                <div class="list-group"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Subjective off canvas end -->
+
+    <!-- Objective off canvas start -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="objectiveMacros"
+      aria-labelledby="objectiveoffcanvasRightLabelO">
+      <div class="offcanvas-header">
+        <h5 id="objectiveoffcanvasRightLabelO">Objective Macros</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body" id="ocobjective">
+        <!-- start accordian -->
+
+      </div>
+    </div>
+    <!-- Objective off canvas end -->
+
+    <!-- Assessment off canvas start -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="assessmentMacros"
+      aria-labelledby="assessmentoffcanvasRightLabelS">
+      <div class="offcanvas-header">
+        <h5 id="assessmentoffcanvasRightLabelS">Assessment Macros</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body" id="ocassessment">
+        <!-- start accordian -->
+
+      </div>
+    </div>
+    <!-- Assessment off canvas end -->
+
+    <!-- Medication off canvas start -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="medicationMacros"
+      aria-labelledby="medicationoffcanvasRightLabelS">
+      <div class="offcanvas-header">
+        <h5 id="medicationoffcanvasRightLabelS">Medication Macros</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body" id="ocmedication">
+        <!-- start accordian -->
+
+      </div>
+    </div>
+    <!-- Medication off canvas end -->
+
+    <!-- Procedure off canvas start -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="procedureMacros"
+      aria-labelledby="procedureoffcanvasRightLabelS">
+      <div class="offcanvas-header">
+        <h5 id="procedureoffcanvasRightLabelS">Procedure Macros</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body" id="ocprocedure">
+        <!-- start accordian -->
+
+      </div>
+    </div>
+    <!-- Procedure off canvas end -->
+
+    <!-- Plan off canvas start -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="planMacros" aria-labelledby="planoffcanvasRightLabelS">
+      <div class="offcanvas-header">
+        <h5 id="planoffcanvasRightLabelS">Plan Macros</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body" id="ocplan">
+        <!-- start accordian -->
+
+      </div>
+    </div>
+    <!-- Plan off canvas end -->
+
+    <!-- Summary off canvas start -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="summaryMacros" aria-labelledby="summaryoffcanvasRightLabelS">
+      <div class="offcanvas-header">
+        <h5 id="summaryoffcanvasRightLabelS">Summary Macros</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body" id="ocsummary">
+        <!-- start accordian -->
+
+      </div>
+    </div>
+    <!-- Summary off canvas end -->
+
+
+
+
+  </section>
+
+  <!-- Modal Section -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div>
+              <label for="soapsection">Choose a section to add the macro to</label>
+              <select class="form-select" id="soapsection" name="soapsection" aria-label="Soap section">
+                <option selected disabled required>-- Select --</option>
+                <option value="subjective">Subjective</option>
+                <option value="objective">Objective</option>
+                <option value="assessment">Assessment</option>
+                <option value="procedure">Procedure</option>
+                <option value="plan">Plan</option>
+              </select>
+            </div>
+
+            <div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Example label</label>
+                <input type="text" class="form-control" id="formGroupExampleInput"
+                  placeholder="Example input placeholder">
+              </div>
+              <label for="btnlabel">What would you like the button to display?</label>
+              <input type="text" id="btnlabel" name="btnlabel">
+            </div>
+          </form>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--Select  Modal -->
+  <div class="modal fade" id="selectModal" tabindex="-1" aria-labelledby="selectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="selectModalLabel">Select</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <div>
+            <p id="selectlist" class="text-center"></p>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--History  Modal -->
+  <div class="modal fade" id="historyModal" tabindex="-1" aria-labelledby="historyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="historyModalLabel">History</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <div>
+            <p id="historylist" class="text-center"></p>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- For Side Nav Or Setting Meun -->
+<Script>
+  var navIcon = document.getElementById("navIcon");
+  var crossIcon = document.getElementById("crossIcon");
+  var leftmenu =document.getElementById("leftMenu");
+  // var body = document.getElementsByTagName("BODY")[0];
+
+
+  navIcon.addEventListener('click' , function(){
+    leftmenu.classList.add('fitMenu');
+    // body.classList.add('overflow-hidden');
+  });
+
+  crossIcon.addEventListener('click' , function(){
+    leftmenu.classList.remove('fitMenu');
+    // body.classList.remove('overflow-hidden');
+  });
+
+
+  // Setting Menu
+  var settingIcon = document.getElementById("settingIcon");
+  var settingMenu =document.getElementById("settingMenu");
+
+  
+
+  settingIcon.addEventListener('click' , function(){
+    settingMenu.classList.toggle('show');
+  });
+
+  settingMenu.addEventListener('click' , function(){
+    settingMenu.classList.remove('show');
+  });
+
+</Script>
+
+<script>
+
+  function myFunction2() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+
+  function dxadd(sel, eid) {
+    var issueid = $(sel).data('issue');
+    var checkmark = "0";
+
+
+    var checkBox = document.getElementById("cb" + issueid);
+    // Get the output text
+    //  var text = document.getElementById("text");
+
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true) {
+      checkmark = "1";
+      // alert("Checked" + issueid);
+    }
+    else {
+      checkmark = "0";
+    }
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var responseArray = JSON.parse(this.responseText);
+        var alength = responseArray.length;
+        // location.reload();
+        //  document.getElementById("dxcodes").innerHTML = responseArray[0][0];
+
+        //   alert(responseArray);
+        //   alert(responseArray[1] + responseArray.length);
+        console.log(responseArray.length);
+        // if (typeof responseArray[0][0] !== 'undefined') {
+        if (alength >= 1) {
+          document.getElementById("dxa-code").value = responseArray[0][1];
+          document.getElementById("dxa-desc").value = responseArray[0][2];
+        }
+        //  if (typeof responseArray[1][0] !== 'undefined') {
+        if (alength >= 2) {
+          document.getElementById("dxb-code").value = responseArray[1][1];
+          document.getElementById("dxb-desc").value = responseArray[1][2];
+        }
+        //   console.log(typeof responseArray[2][0]);
+        // if (typeof responseArray[2][0] !== 'undefined') {
+        if (alength >= 3) {
+          document.getElementById("dxc-code").value = responseArray[2][1];
+          document.getElementById("dxc-desc").value = responseArray[2][2];
+        }
+        // console.log(typeof responseArray[3][0]);
+        // if (typeof responseArray[3][0] !== 'undefined') {
+        if (alength >= 4) {
+          document.getElementById("dxd-code").value = responseArray[3][1];
+          document.getElementById("dxd-desc").value = responseArray[3][2];
+        }
+        //  if (typeof responseArray[4][0] !== 'undefined') {
+        if (alength >= 5) {
+          document.getElementById("dxe-code").value = responseArray[4][1];
+          document.getElementById("dxe-desc").value = responseArray[4][2];
+        }
+        // if (typeof responseArray[5][0] !== 'undefined') {
+        if (alength >= 6) {
+          document.getElementById("dxf-code").value = responseArray[5][1];
+          document.getElementById("dxf-desc").value = responseArray[5][2];
+        }
+        // if (typeof responseArray[6][0] !== 'undefined') {
+        if (alength >= 7) {
+          document.getElementById("dxg-code").value = responseArray[6][1];
+          document.getElementById("dxg-desc").value = responseArray[6][2];
+        }
+        // if (typeof responseArray[7][0] !== 'undefined') {
+        if (alength >= 8) {
+          document.getElementById("dxh-code").value = responseArray[7][1];
+          document.getElementById("dxh-desc").value = responseArray[7][2];
+        }
+
+
+      }
+    };
+
+    var parameters = 'json=' + issueid + '&checkmark=' + checkmark + '&enc=' + eid;
+
+    xhttp.open("POST", "libraries/encounter/updateEncounterDx2.php?", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+    xhttp.send(parameters);
+
+  }
+
+  function getquestionnaire2(sel) {
+    document.getElementById("selectlist").innerHTML = '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>';
+    var myexamid = sel.value;
+    document.getElementById("selectModalLabel").innerHTML = sel.options[sel.selectedIndex].innerHTML;
+    $('#selectModal').modal('show');
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("selectlist").innerHTML =
+          this.responseText;
+      }
+    };
+    if (myexamid === "0") {
+      xhttp.open("GET", "libraries/objective/displaycurrenttests.php?examid=" + myexamid, true);
+    }
+    else {
+      xhttp.open("GET", "libraries/subjective/displayquestions2.php?questionnaireid=" + myexamid, true);
+    }
+
+    xhttp.send();
+  } // end getquestionnaire(sel)
+
+  function getquestionnaire3(sel) {
+    document.getElementById("selectlist").innerHTML = '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>';
+    var myexamid = sel.value;
+    document.getElementById("selectModalLabel").innerHTML = sel.options[sel.selectedIndex].innerHTML;
+    $('#selectModal').modal('show');
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("selectlist").innerHTML =
+          this.responseText;
+      }
+    };
+    if (myexamid === "0") {
+      xhttp.open("GET", "libraries/objective/displaycurrenttests.php?examid=" + myexamid, true);
+    }
+    else {
+      xhttp.open("GET", "libraries/subjective/displayquestions3.php?questionnaireid=" + myexamid, true);
+    }
+
+    xhttp.send();
+  } // end getquestionnaire(sel)
+
+  function getexams(sel) {
+    document.getElementById("selectlist").innerHTML = '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>';
+    var myexamid = sel.value;
+    document.getElementById("selectModalLabel").innerHTML = sel.options[sel.selectedIndex].innerHTML;
+    $('#selectModal').modal('show');
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("selectlist").innerHTML =
+          this.responseText;
+      }
+    };
+    if (myexamid === "0") {
+      xhttp.open("GET", "libraries/objective/displaycurrenttests.php?examid=" + myexamid, true);
+    }
+    else {
+      xhttp.open("GET", "libraries/objective/displaytestsforexam2.php?examid=" + myexamid, true);
+    }
+
+    xhttp.send();
+  } // end getexams(sel)
+
+  function getcategories(sel) {
+    document.getElementById("selectlist").innerHTML = '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>';
+    var mycatid = sel.value;
+    document.getElementById("selectModalLabel").innerHTML = sel.options[sel.selectedIndex].innerHTML;
+    $('#selectModal').modal('show');
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("selectlist").innerHTML =
+          this.responseText;
+      }
+    };
+    if (mycatid === "0") {
+      xhttp.open("GET", "libraries/procedures/displaycurrentprocedures.php?catid=" + mycatid, true);
+    }
+    else {
+      xhttp.open("GET", "libraries/procedures/displaycategoriesforexam.php?catid=" + mycatid, true);
+    }
+
+    xhttp.send();
+  } // end getcategories(sel)
+
+  function getSOAPhistory(section) {
+    document.getElementById("selectlist").innerHTML = '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>';
+    const capitalized = section.charAt(0).toUpperCase() + section.slice(1);
+    document.getElementById("selectModalLabel").innerHTML = capitalized;
+    $('#selectModal').modal('show');
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("selectlist").innerHTML =
+          this.responseText;
+      }
+    };
+    xhttp.open("GET", "libraries/encounter2/displaySOAPhx.php?section=" + section, true);
+    // if(myexamid === "0"){
+    //   xhttp.open("GET", "libraries/objective/displaycurrenttests.php?examid=" + myexamid, true);}
+    // else {
+    //   xhttp.open("GET", "libraries/objective/displaytestsforexam2.php?examid=" + myexamid, true);}
+
+    xhttp.send();
+  } // end getSOAPhistory(section)
+
+  function qnadd(sel) {
+    var qnid = $(sel).data('qnid');
+    var checkmark = "0";
+
+    var myEncounter = "1945";
+    var checkBox = document.getElementById("qncb" + qnid);
+    // Get the output text
+    //  var text = document.getElementById("text");
+
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true) {
+      checkmark = "1";
+      // alert("Checked" + issueid);
+    }
+    else {
+      checkmark = "0";
+    }
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        //  var responseArray = JSON.parse(this.responseText);
+
+        //  document.getElementById("dxcodes").innerHTML = responseArray[0][0];
+        if (xhttp.responseText == "Error") {
+          alert("There was a problem saving the question data. Please reload this Encounter page to avoid losing your saved work.");
+        }
+      }
+    };
+
+    var parameters = 'json=' + qnid + '&checkmark=' + checkmark + '&enc=' + myEncounter;
+
+    xhttp.open("POST", "libraries/encounter/updateEncounterQuestionnaire.php?", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+    xhttp.send(parameters);
+
+  }
+
+  function getmacros(section) {
+    // document.getElementById("selectlist").innerHTML = '<div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>';
+    // var mycatid = sel.value;
+    // document.getElementById("selectModalLabel").innerHTML = sel.options[sel.selectedIndex].innerHTML;
+    // $('#selectModal').modal('show');
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("oc" + section).innerHTML =
+          this.responseText;
+      }
+    };
+    xhttp.open("GET", "libraries/encounter2/loadmacros.php?section=" + section + "&cid=89", true);
+
+    xhttp.send();
+  } // end getmacros(section)
+
+
+</script>
+
+
+<script>
+  if (annyang) {
+
+    annyang.debug();
+
+    // Let's define our first command. First the text we expect, and then the function it should call
+    // var commands = {
+    //   'show tps report': function() {
+    //     $('#tpsreport').animate({bottom: '-100px'});
+    //   }
+    // };
+
+    // Add our commands to annyang
+    // annyang.addCommands(commands);
+
+    // Start listening. You can call this here, or attach this call to an event, button, etc.
+    annyang.start();
+    annyang.pause();
+    annyang.addCallback('result', function (whatWasHeardArray) {
+      console.log(whatWasHeardArray);
+      // 	if( $('#SubjectiveText').is(':visible') ) {
+      // 	var oldtext = $('#SubjectiveText').val();
+      // 	if((oldtext==="") || (oldtext.slice(-1) === ".") || (oldtext.slice(-2) === ". ")){ modText = jsUcfirst(whatWasHeardArray[0]);}
+      // 	else modText = whatWasHeardArray[0] + " ";
+      // 	$('#SubjectiveText').val(oldtext + modText);
+      // 	savesubjective();
+      // 	}
+      // 	if( $('#ObjectiveText').is(':visible') ) {
+      // 	var oldtext = $('#ObjectiveText').val();
+      // 	if((oldtext==="") || (oldtext.slice(-1) === ".") || (oldtext.slice(-2) === ". ")){ modText = jsUcfirst(whatWasHeardArray[0]);}
+      // 	else modText = whatWasHeardArray[0]+ " ";
+      // 	$('#ObjectiveText').val(oldtext + modText);
+      // 	saveobjective();
+      // 	}
+      // 	if( $('#AssessmentText').is(':visible') ) {
+      // 	var oldtext = $('#AssessmentText').val();
+      // 	if((oldtext==="") || (oldtext.slice(-1) === ".") || (oldtext.slice(-2) === ". ")){ modText = jsUcfirst(whatWasHeardArray[0]);}
+      // 	else modText = whatWasHeardArray[0] + " ";
+      // 	$('#AssessmentText').val(oldtext + modText);
+      // 	saveassessment();
+      // 	}
+      // 	if( $('#ProcedureText').is(':visible') ) {
+      // 	var oldtext = $('#ProcedureText').val();
+      // 	if((oldtext==="") || (oldtext.slice(-1) === ".") || (oldtext.slice(-2) === ". ")){ modText = jsUcfirst(whatWasHeardArray[0]);}
+      // 	else modText = whatWasHeardArray[0] + " ";
+      // 	$('#ProcedureText').val(oldtext + modText);
+      // 	saveprocedure();
+      // 	}
+      // 	if( $('#PlanText').is(':visible') ) {
+      // 	var oldtext = $('#PlanText').val();
+      // 	if((oldtext==="") || (oldtext.slice(-1) === ".") || (oldtext.slice(-2) === ". ")){ modText = jsUcfirst(whatWasHeardArray[0]);}
+      // 	else modText = whatWasHeardArray[0];
+      // 	$('#PlanText').val(oldtext + modText);
+      // 	saveplan();
+      // 	}
+      var newText = "";
+      var x = document.activeElement.id;
+      if (x != "") {
+
+        var existingText = document.getElementById(x).value;
+        var res = existingText.charAt(existingText.length - 1);
+        if (existingText === "") {
+          newText = whatWasHeardArray[0].charAt(0).toUpperCase() + whatWasHeardArray[0].slice(1);
+        }
+        else if (res == ".") {
+          newText = " " + whatWasHeardArray[0].charAt(0).toUpperCase() + whatWasHeardArray[0].slice(1);
+        }
+        else if (res == "\n") {
+          newText = whatWasHeardArray[0].charAt(0).toUpperCase() + whatWasHeardArray[0].slice(1);
+        }
+        else if ((res != " ") && (whatWasHeardArray[0].charAt(0) != " ")) {
+          newText = " " + whatWasHeardArray[0];
+        }
+        // else if(existingText == "")
+        // {
+        //    newText = " " + whatWasHeardArray[0].charAt(1).toUpperCase() + whatWasHeardArray[0].slice(2);
+        // }
+        else newText = whatWasHeardArray[0];
+
+        console.log(whatWasHeardArray);
+        //console.log("test");
+
+        try {
+          myText = document.getElementById(x).value + newText;
+          document.getElementById(x).value = myText;
+        }
+        catch (err) {
+          console.log("Attempted to add text to unaccesible object. " + err.message);
+        }
+      }
+
+
+
+
+    });
+
+
+  }
+
+  // annyang.addCallback('result', function(phrases) {
+  //   console.log("I think the user said: ", phrases[0]);
+  //   console.log("But then again, it could be any of the following: ", phrases);
+  // });
+
+  function toggleannyang() {
+    if (annyang.isListening()) {
+      document.getElementById("microphone").style.backgroundColor = "lightgrey";
+      document.getElementById("microphone").innerHTML = "<i class='fa fa-microphone-slash'></i> Mic Off";
+      annyang.pause();
+    }
+    else {
+
+      document.getElementById("microphone").style.backgroundColor = "#ff6666";
+      document.getElementById("microphone").innerHTML = "<i class='fa fa-microphone'></i> Mic On";
+      annyang.resume();
+
+    }
+  }
+
+  function pageloadscripts() {
+    // getmacros('subjective');
+    // getmacros('objective');
+    // getmacros('assessment');
+    // getmacros('medication');
+    // getmacros('procedure');
+    // getmacros('plan');
+    // getmacros('summary');
+    // annyang.start();
+
+  }
+</script>
+
+<!-- <script src="js/encounter/encounter2.js"></script> -->
+</body>
+</html>

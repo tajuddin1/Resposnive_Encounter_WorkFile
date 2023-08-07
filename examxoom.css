@@ -1,0 +1,738 @@
+#mapid {
+  height: 180px;
+}
+
+@media print {
+  -webkit-print-color-adjust: exact !important;
+
+  td.pass {
+    font-weight: bold;
+    background-color: #90ee90 !important;
+    text-align: center;
+  }
+
+  td.fail {
+    font-weight: bold;
+    background-color: #f0e68c !important;
+    text-align: center;
+  }
+
+  td.pain {
+    font-weight: bold;
+    color: red;
+  }
+}
+
+.pass {
+  font-weight: bold;
+  background-color: #90ee90;
+}
+
+.fail {
+  font-weight: bold;
+  background-color: #f0e68c;
+}
+
+.pain {
+  font-weight: bold;
+  color: red;
+}
+
+.qstructures {
+  font-size: 14px;
+}
+
+.qfunctions {
+  font-style: italic;
+  font-size: 12px;
+}
+
+.regionbox {
+  display: -webkit-flex;
+  display: flex;
+  width: 700px;
+  background-color: lightgrey;
+  border: 1px black;
+  padding: 5px;
+  margin: 2px;
+}
+
+.innerbox {
+  display: -webkit-flex;
+  display: flex;
+  float: right;
+  width: 200px;
+  background-color: lightblue;
+  padding: 0px;
+  margin: 4px;
+}
+
+.otherbox {
+  float: right;
+  background-color: lightblue;
+  padding: 0px;
+  margin: 5px;
+}
+
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  width: 400px;
+  height: 250px;
+  background-color: DodgerBlue;
+}
+
+.sub1 {
+  padding-left: 10px;
+}
+
+.sub2 {
+  padding-left: 20px;
+}
+
+.sub3 {
+  /* padding-left: 30px; */
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.muscular {
+  color: black;
+  background-color: #ff2929;
+}
+
+tr.muscular {
+  color: black;
+  background-color: #ff2929;
+}
+
+.muscularsub {
+  color: black;
+  background-color: #ff6666;
+}
+
+tr.muscularsub {
+  color: black;
+  background-color: #ff6666;
+}
+
+.muscularsub2 {
+  color: black;
+  background-color: #ff9999;
+}
+
+tr.muscularsub2 {
+  color: black;
+  background-color: #ff9999;
+}
+
+.muscularsub3 {
+  color: black;
+  background-color: #ffcccc;
+}
+
+tr.muscularsub3 {
+  color: black;
+  background-color: #ffcccc;
+}
+
+.tension {
+  color: black;
+  background-color: #9966ff;
+}
+
+.tensionsub {
+  color: black;
+  background-color: #bb99ff;
+}
+
+.stability {
+  color: black;
+  background-color: #33cc33;
+}
+
+.nerve {
+  color: black;
+  background-color: #ffff00;
+}
+
+.nervesub {
+  color: black;
+  background-color: #ffff66;
+}
+
+.nervesub2 {
+  color: black;
+  background-color: #ffff99;
+}
+
+.circulatory {
+  color: black;
+  background-color: #cc0066;
+}
+
+tr.circulatory {
+  background-color: #cc0066;
+}
+
+.circulatorysub {
+  color: black;
+  background-color: #ff0080;
+}
+
+tr.circulatorysub {
+  background-color: #ff0080;
+}
+
+.digestive {
+  color: black;
+  background-color: #996633;
+}
+
+tr.digestive {
+  background-color: #996633;
+}
+
+.digestivesub {
+  color: black;
+  background-color: #bf8040;
+}
+
+tr.digestivesub {
+  background-color: #bf8040;
+}
+
+.endocrine {
+  color: black;
+  background-color: #33ccff;
+}
+
+tr.endocrine {
+  background-color: #33ccff; /*#ff9933; */
+}
+
+.endocrinesub {
+  color: black;
+  background-color: #66d9ff; /*#ffb366; */
+}
+
+tr.endocrinesub {
+  background-color: #66d9ff;
+}
+
+.immune {
+  color: black;
+  background-color: #e066ff;
+}
+
+tr.immune {
+  background-color: #e066ff;
+}
+
+.immunesub {
+  color: black;
+  background-color: #eb99ff;
+}
+
+tr.immunesub {
+  background-color: #eb99ff;
+}
+
+/*.lymphatic {
+	color : black;
+	background-color: #009900;
+}
+*/
+
+.integumentary {
+  color: black;
+  background-color: #cc6600;
+}
+
+tr.integumentary {
+  color: black;
+  background-color: #cc6600;
+}
+
+.integumentarysub {
+  background-color: #ff8000;
+}
+
+tr.integumentarysub {
+  background-color: #ff8000;
+}
+
+.joint {
+  color: black;
+  background-color: #00cc99;
+}
+
+.jointsub {
+  color: black;
+  background-color: #00cc99;
+}
+
+.visceral {
+  color: black;
+  background-color: #cc3300;
+}
+
+.visceralsub {
+  color: black;
+  background-color: #cc3300;
+}
+
+.metabolic {
+  color: black;
+  background-color: #197f50;
+}
+
+.specialsenses {
+  color: black;
+  background-color: #33ccff;
+}
+
+.specialsensessub {
+  color: black;
+  background-color: #33ccff;
+}
+
+.reproductive {
+  color: black;
+  background-color: #00b300; /*#ff9999;*/
+}
+
+tr.reproductive {
+  color: black;
+  background-color: #00b300;
+}
+
+.respiratory {
+  color: black;
+  background-color: #6666ff; /*#6666ff;*/
+}
+
+tr.respiratory {
+  color: black;
+  background-color: #6666ff; /*#6666ff;*/
+}
+
+tr.respiratorysub {
+  color: black;
+  background-color: #9999ff; /*#6666ff;*/
+}
+
+.skeletal {
+  color: black;
+  background-color: #f3d8a5;
+}
+/* #f0ce8e    f5deb3 */
+.skeletalsub {
+  color: black;
+  background-color: #f6e1bc;
+}
+
+.skeletalsub1 {
+  color: black;
+  background-color: #f6e1bc;
+}
+
+tr.skeletalsub1 {
+  color: black;
+  background-color: #f6e1bc;
+}
+
+.skeletalsub2 {
+  color: black;
+  background-color: #f9ebd2;
+}
+
+tr.skeletalsub2 {
+  color: black;
+  background-color: #f9ebd2;
+}
+
+.urinary {
+  color: black;
+  background-color: #ffffcc;
+}
+
+tr.urinary {
+  color: black;
+  background-color: #ffffcc;
+}
+
+tr.urinarysub1 {
+  color: black;
+  background-color: #ffffe6;
+}
+
+.region {
+  text-align: center;
+  float: left;
+  width: 150px;
+  background-color: lightblue;
+  padding: 1px;
+  margin: 2px 2px 2px 20px;
+}
+
+.system {
+  float: right;
+  background-color: lightblue;
+  padding: 0;
+  margin: 2px;
+}
+
+.q-wrapper {
+  width: 980px;
+  background-color: #c2d6d6;
+  border: 1px black;
+  padding: 5px;
+  margin: 5px;
+}
+
+.region-wrapper {
+  vertical-align: top;
+  display: inline-block;
+  width: 980px;
+}
+
+.system-wrapper {
+  vertical-align: top;
+  display: inline-block;
+  width: 245px; /* was 200  */
+  text-align: center;
+  margin-right: 5px;
+  padding-top: 8px;
+}
+
+.system-box {
+  vertical-align: top;
+  display: block;
+  width: 245px;
+  padding: 3px;
+  text-align: left;
+  line-height: 1;
+}
+
+.btn {
+  min-width: 115px;
+}
+
+.passdot {
+  height: 10px;
+  width: 10px;
+  background-color: #90ee90;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.faildot {
+  height: 10px;
+  width: 10px;
+  background-color: #f0e68c;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.passpaindot {
+  height: 10px;
+  width: 10px;
+  background-image: linear-gradient(to right, #90ee90 60%, red 40%);
+  /* background-color: #90ee90; */
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.failpaindot {
+  height: 10px;
+  width: 10px;
+  background-image: linear-gradient(to right, #f0e68c 60%, red 40%);
+  /* background-color: #90ee90; */
+  border-radius: 50%;
+  display: inline-block;
+}
+
+td.money {
+  text-align: right;
+}
+
+/********  SFMA section  *********/
+
+.FN {
+  text-align: center;
+  background-color: LightGreen;
+}
+.FP {
+  text-align: center;
+  background-color: LightGreen;
+  color: Red;
+}
+.DP {
+  text-align: center;
+  background-color: Khaki;
+  color: Red;
+}
+.DN {
+  text-align: center;
+  background-color: Khaki;
+}
+.myHead {
+  text-align: center;
+}
+.blue {
+  display: none;
+  background-color: skyblue;
+}
+.green {
+  display: none;
+  background-color: lime;
+}
+.orange {
+  display: none;
+  background-color: orange;
+}
+.blue2 {
+  background-color: skyblue;
+}
+.green2 {
+  background-color: lime;
+}
+
+/* ///////////////////// */
+
+.sidebar {
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  position: fixed;
+  width: 200px;
+  z-index: 1000;
+  overflow: hidden;
+  overflow-y: auto;
+  transition: 0.5s;
+  margin-top: 64px;
+  display: flex;
+  justify-content: center;
+  background-color: whitesmoke;
+  box-shadow: 0 12px 30px rgba(80, 143, 244, 0.1);
+}
+
+.main_content {
+  margin-top: 70px;
+  padding-left: 200px !important;
+  padding-right: 200px !important;
+  width: 100%;
+  padding-top: 0px !important;
+  transition: 0.5s;
+  position: relative;
+}
+.top_haeder .encounter-header {
+  border-bottom: 1px solid #ececec;
+  z-index: 999;
+}
+
+.form-select {
+  font-size: 16px !important;
+}
+.form-control {
+  font-size: 14px;
+  padding: 5px 10px;
+  color: #212529;
+}
+#more_dx .form-control,
+#more_dx1 .form-control {
+  display: inline;
+  font-size: 14px;
+  padding: 5px 10px;
+  color: #212529;
+}
+.form-control:active,
+.form-control:focus {
+  border-color: #999;
+  box-shadow: none;
+}
+h2.heading_title {
+	font-size: 16px;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.button_wrapper{
+	max-width: 400px;
+	margin-top: 10px;
+}
+
+.header-button {
+    margin-top: 0 !important;
+}
+button#microphone {
+    max-width: 65px;
+    min-width: unset;
+}
+/* 
+#setting{
+	display:none;
+} */
+#leftMenu.fitMenu{
+	left: 0 !important;
+}
+
+.cross_wrapper{
+	display: block;
+	position: relative;
+}
+.cross_wrapper .icon {
+    position: absolute;
+    right: -100px;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    padding-bottom: 5px;
+    background: #e7e7e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+	z-index: 99999;
+}
+#settingMenu.patient-buttons.show {
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    background: #fff;
+    box-shadow: 2px 2px 16px #a7a7a7;
+    display: flex;
+    width: 150px;
+    height: 180px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+#settingMenu.patient-buttons.show{
+	display: flex !important;
+}
+#settingMenu.patient-buttons.show button#microphone {
+    max-width: unset;
+    min-width: unset;
+    width: 100%;
+    margin-right: 0;
+}
+
+#settingMenu.patient-buttons.show button,
+#settingMenu.patient-buttons.show a {
+    max-width: unset;
+    min-width: unset;
+    width: 100%;
+    margin-right: 0;
+}
+#settingMenu.patient-buttons.show:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 10px solid #0d6efd;
+    top: -10px;
+    right: 15px;
+}
+
+
+
+
+@media (max-width:1600px) {
+	.main_content {
+		padding-right: 50px !important;
+	  }
+	
+}
+
+@media (max-width:1024px) {
+	.form-control {
+		font-size: 14px;
+	}
+	input[type="datetime-local"] {
+		max-width: 175px;
+	}
+}
+@media (max-width:800px) {
+	/* #setting {
+		display: flex;
+	} */
+	.profile-box {
+		width: 150px;
+	}
+	.sidebar {
+		width: 170px;
+	}
+	.main_content {
+		padding-left: 170px !important;
+		padding-right: 0px !important;
+	}
+	.nav_icon {
+		width: 40px;
+		height: 40px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 20px;
+	}
+	.btn {
+		min-width: 110px;
+	}
+	.dxdesc {
+		margin-right: 0px;
+		margin-bottom: 15px;
+	}
+}
+@media (max-width:590px) {
+	.profile-patient {
+		margin-top: 45px;
+	}
+	.sidebar {
+		width: 230px;
+		left: -100%;
+		margin-top: 0;
+		z-index: 9999;
+	}
+	.main_content {
+		padding-left: 0px !important;
+		padding-right: 0px !important;
+		margin-top: 50px;
+	}
+	.container-body {
+		padding: 0px;
+		width: 100%;
+		overflow: hidden;
+	}
+	.patient-name {
+		float: unset !important;
+		text-align: center !important;
+		padding:12px 5px !important;
+		text-decoration: none !important;
+		font-size: 14px !important;
+	}
+	input[type="datetime-local"] {
+		max-width: 160px;
+	}
+
+	.table>:not(caption)>*>* {
+		font-size: 10px;
+		padding: 7px 0px;
+		text-align: center;
+	}
+	.dxcode {
+		margin-left: 0px;
+	}
+	
+}
+@media (max-width:420px) {
+	
+	.btn {
+		min-width: 90px;
+	}
+	.col-12 {
+		padding: 0px 5px;
+	}
+}
